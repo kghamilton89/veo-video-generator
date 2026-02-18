@@ -2,7 +2,7 @@
 
 An OpenClaw skill that uses **Google Veo 3.1** to generate cinematic 1080p/4K videos with natively synchronized audio and sound effects.
 
-[![ClawdHub Verified](https://img.shields.io/badge/ClawdHub-Verified-brightgreen)](https://clawdhub.com)
+[![ClawHub Verified](https://img.shields.io/badge/ClawdHub-Verified-brightgreen)](https://clawdhub.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
@@ -24,27 +24,15 @@ cd veo-video-gen
 npm install
 ```
 
-Coming soon on ClawdHub!
+Or ask your agent to [download the skill directly from ClawHub](https://clawhub.ai/kghamilton89/veo-video-generator).
 
 ### 2. Configure Credentials
 
-Add your Gemini API Key to your `.env` for local use or your OpenClaw Agent settings:
-
-```text
-GEMINI_API_KEY=your_key_here
-```
+Provide your [Gemini API key](https://aistudio.google.com/api-keys).
 
 ## Usage
 
-### Via Command Line
-
-```bash
-node generate.js --prompt "A disco robot dancing in a neon club. Audio: 70s disco beats."
-```
-
-### Via OpenClaw Agent
-
-Simply ask your agent: "Generate a video of a calm forest with birds chirping using Veo."
+After installing this skill from [ClawHub](https://clawhub.ai/kghamilton89/veo-video-generator) simply ask your agent: "Generate a video of a calm forest with birds chirping using Veo."
 
 ## Metadata (SKILL.md)
 
