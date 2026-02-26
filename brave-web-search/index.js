@@ -131,12 +131,27 @@ async function braveAnswer({ query }) {
 // ── Entry point ────────────────────────────────────────────────────────────
 
 const [,, command, ...args] = process.argv;
-const params = Object.fromEntries(
-  args.map(arg => {
-    const [k, ...v] = arg.replace(/^--/, '').split('=');
-    return [k, v.join('=')];
-  })
-);
+
+// Supports both --key=value and --key value (two separate argv elements).
+// Using separate elements (execFile-style) is preferred — it ensures user-
+// supplied values are never parsed by the shell.
+const params = {};
+for (let i = 0; i < args.length; i++) {
+  const arg = args[i];
+  if (!arg.startsWith('--')) continue;
+  const key = arg.slice(2);
+  if (key.includes('=')) {
+    // --key=value form
+    const eq = key.indexOf('=');
+    params[key.slice(0, eq)] = key.slice(eq + 1);
+  } else if (i + 1 < args.length && !args[i + 1].startsWith('--')) {
+    // --key value form (value is the next element)
+    params[key] = args[++i];
+  } else {
+    // boolean flag (--key with no value)
+    params[key] = true;
+  }
+}
 
 const handlers = {
   'brave-search': braveSearch,

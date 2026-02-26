@@ -30,7 +30,7 @@ Searches the web and fetches AI-generated summarized answers using the Brave Sea
 
    Do **not** construct the command as a single concatenated string such as `"node index.js brave-search --query " + userQuery`.
 
-5. **Freshness**: For time-sensitive queries, pass `--freshness pd` (past day), `pw` (past week), or `pm` (past month) to the `brave-search` command.
+5. **Freshness**: For time-sensitive queries, pass `--freshness` followed by `pd` (past day), `pw` (past week), or `pm` (past month) as a separate argument to `brave-search`.
 6. **Fallback**: If `brave-answer` returns `answer: null`, present the `fallback_results` to the user instead.
 7. **Completion**: Present the results clearly, citing titles and URLs for web search results, or the summary text for answer results.
 
