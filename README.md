@@ -1,46 +1,34 @@
-# Veo Video Generator Skill for OpenClaw
+# clawhub-skills
 
-An OpenClaw skill that uses **Google Veo 3.1** to generate cinematic 1080p/4K videos with natively synchronized audio and sound effects.
+A monorepo of **ClawHub skills** for [OpenClaw](https://clawdhub.com) agents developed by [Kenneth Hamilton](https://kennethhamilton.me).
 
-[![ClawHub Verified](https://img.shields.io/badge/ClawdHub-Verified-brightgreen)](https://clawdhub.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Each skill lives in its own subdirectory and is self-contained — with its own `SKILL.md`, `package.json`, and source files. This structure lets every skill be published, versioned, and installed independently via [ClawHub](https://clawhub.ai).
 
-## Features
-
-- **Native Audio:** Generates background music and SFX synced to the video.
-- **Fast Rendering:** Uses `veo-3.1-fast-generate-preview` for < 60s turnaround.
-- **Mobile Ready:** Default 9:16 aspect ratio for social media agents.
-- **Standalone:** No complex dependencies; runs on native Node.js.
-
-## Installation
-
-### 1. Local Setup
-
-Clone this into your OpenClaw `skills` directory:
+## Repository Structure
 
 ```bash
-git clone
-cd veo-video-gen
-npm install
+clawhub-skills/
+├── README.md                  ← you are here
+└── veo-video-generator/       ← skill: Veo Video Generator
+    ├── SKILL.md
+    ├── generate.js
+    ├── package.json
+    ├── package-lock.json
+    └── README.md
 ```
 
-Or ask your agent to [download the skill directly from ClawHub](https://clawhub.ai/kghamilton89/veo-video-generator).
+## Skills
 
-### 2. Configure Credentials
+| Skill | Description | ClawHub |
+|---|---|---|
+| [veo-video-generator](./veo-video-generator/README.md) | Generate cinematic 1080p videos with synced audio using Google Veo 3.1 | [View on ClawHub](https://clawhub.ai/kghamilton89/veo-video-generator) |
 
-Provide your [Gemini API key](https://aistudio.google.com/api-keys).
+## Adding a New Skill
 
-## Usage
-
-After installing this skill from [ClawHub](https://clawhub.ai/kghamilton89/veo-video-generator) simply ask your agent: "Generate a video of a calm forest with birds chirping using Veo."
-
-## Metadata (SKILL.md)
-
-This skill defines its requirements in `SKILL.md` using the `metadata.clawdbot` schema:
-
-- Language: Node.js (v20+)
-- Environment: GEMINI_API_KEY
-- Output: .mp4 (saved to workspace root)
+1. Create a new folder at the repo root with your skill's name (e.g. `my-new-skill/`).
+2. Add a `SKILL.md` file following the `metadata.clawdbot` schema.
+3. Add a `README.md`, source files, and a `package.json` (if needed).
+4. Update the **Skills** table above with a link to the new skill's README.
 
 ## License
 
